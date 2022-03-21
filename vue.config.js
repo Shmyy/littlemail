@@ -5,7 +5,8 @@ module.exports = defineConfig({
         overlay: {
           warnings: false,
           errors: false
-        }
+        },
+        overlay:'./public'
     },
     lintOnSave: false,
     configureWebpack:{
