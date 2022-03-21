@@ -7,5 +7,16 @@ module.exports = defineConfig({
         errors: false
       },
       lintOnSave: false
+  },
+  configureWebpack:{
+    resolve:{
+      alias:{
+        'assets':'@/assets',
+        'common':'@/common',
+        'components':'@/assets',
+        'network':'@/assets',
+        'views':'@/views',
+      }
+    }
   }
 })
