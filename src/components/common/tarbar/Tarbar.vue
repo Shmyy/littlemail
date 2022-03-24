@@ -15,7 +15,7 @@
 
     #tarbar{
         display: flex;
-        background-color: #f6f6f6;
+        background-color: #ededed;
 
         position: fixed;
         left: 0;

@@ -9,6 +9,8 @@ module.exports = defineConfig({
     //     overlay:'./public'
     // },
     lintOnSave: false,
+    publicPath: '',
+    runtimeCompiler: true,
     configureWebpack:{
       resolve:{
         alias:{

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {createRouter, createWebHistory} from "vue-router"
+import {createRouter, createWebHashHistory} from "vue-router"
 
 const Home = () => import ('views/Home/home.vue')
 const Friends = () => import ('views/Friends/friends.vue')
@@ -8,7 +8,7 @@ const Mine = () => import ('views/Mine/mine.vue')
 
 // 1.安装插件
 // Vue.use(VueRouter)
-const routerHistory = createWebHistory()
+const routerHistory = createWebHashHistory()
 
 const routes = [
     {
@@ -40,8 +40,8 @@ const routes = [
 // 2.创建router
 const router = createRouter({
     routes,
-    mode:'history',
-    history: routerHistory
+    // mode:'history',
+    history: routerHistory,
 })
 
 export default router

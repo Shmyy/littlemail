@@ -2,7 +2,7 @@
     <div class="tarbaritem" @click="itemclick">
         <div v-if="!isActive"><slot name="item-icon"></slot></div>
         <div v-else><slot name="item-icon-active"></slot></div>
-        <div :class="{active: isActive}"><slot name="item-text"></slot></div>
+        <div :style="activeStyle"><slot name="item-text"></slot></div>
     </div>
 </template>
 
@@ -19,22 +19,22 @@ export default {
     },
     data(){
         return {
-            isActive: true
+            // isActive: true
             // path: '/home'
         }
     },
-    // computed:{
-    //     isActive(){
-    //         // 判断当前对象是否含有isActive，若无 则给他相反的isActive，若有 则不做改变
-    //         return this.$router.path.includes(this.path) == 1
-    //     },
-    //     activeStyle(){
-    //         return this.isActive ? {color: this.activeColor}:{}
-    //     }
-    // },
+    computed:{
+        isActive(){
+            // 判断当前对象是否含有isActive，若无 则给他相反的isActive，若有 则不做改变
+            return this.$route.path == this.path
+        },
+        activeStyle(){
+            return this.isActive ? {color: this.activeColor}:{}
+        }
+    },
     methods:{
         itemclick(){
-            this.$router.replace(this.path)
+            this.$router.push(this.path)
         }
     }
 }
@@ -47,6 +47,7 @@ export default {
         height: 49px;
         color: black;
         font-size: 14px;
+        font-weight: 700;
     }
     .tarbaritem img{
         width: 24px;
