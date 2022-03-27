@@ -9,7 +9,7 @@
 
         <swiper-slide v-for="item in banners" class="swiper-slide">
             <a :href="item.link">
-                <img :src="item.image" alt="">
+                <img :src="item.image" alt="" @load="imageLoad">
             </a>
         </swiper-slide>
     </swiper>
@@ -32,16 +32,30 @@
                 }
             }
         },
+        data(){
+            return {
+                isLoad: false
+            }
+        },
         components: {
             Swiper,
             SwiperSlide,
         },
+        methods:{
+            imageLoad(){
+                if(!this.isLoad){
+                    this.$emit('swiperImageLoad')
+                    this.isLoad = true
+                }
+            
+            }
+        },
         setup() {
                 const onSwiper = (swiper) => {
-                console.log(swiper);
+                // console.log(swiper);
             };
             const onSlideChange = () => {
-                console.log('slide change');
+                // console.log('slide change');
             };
             return {
                 onSwiper,
@@ -59,8 +73,5 @@
 
     .swiper-slide{
         flex: 1;
-    }
-    .swiper-slide img{
-        
     }
 </style>

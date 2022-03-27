@@ -8,7 +8,6 @@ const Mine = () => import ('views/Mine/mine.vue')
 
 // 1.安装插件
 // Vue.use(VueRouter)
-const routerHistory = createWebHashHistory()
 
 const routes = [
     {
@@ -41,7 +40,8 @@ const routes = [
 const router = createRouter({
     routes,
     // mode:'history',
-    history: routerHistory,
+    history: createWebHashHistory(),
+    base: process.env.BASE_URL,  
 })
 
 export default router
