@@ -1,5 +1,5 @@
 <template>
-    <div class="goodsitem">
+    <div class="goodsitem" @click="itemclick">
         <img :src="goodsitem.show.img" alt="">
         <div class="goodsinfo">
             <p>{{goodsitem.title}}</p>
@@ -18,6 +18,12 @@
                 default(){
                     return {}
                 }
+            }
+        },
+        methods:{
+            itemclick(){
+                // console.log('111')
+                this.$router.push('/Detail/' + this.goodsitem.iid)
             }
         }
     }
